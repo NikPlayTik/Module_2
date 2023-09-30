@@ -15,7 +15,7 @@ namespace Module_2
             Compozition compozition = new Compozition(); // обьект класса "композиции"
             Intf_Abst interface_abstract = new Intf_Abst();
             TemperatureSensorRealization temperatureSensorRealization = new TemperatureSensorRealization();
-
+            Employee employee = new Employee();
             while (true)
             {
                 // меню выбора
@@ -63,7 +63,7 @@ namespace Module_2
                         break;
                     case "6":
                         Console.Clear();
-
+                        employee.OutputData();
                         Console.Clear();
                         break;
                     case "7":

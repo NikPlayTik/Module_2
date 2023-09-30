@@ -14,15 +14,6 @@ namespace Module_2
         private string position;
         private decimal salaryPerMonth;
 
-        // Конструктор для инициализации объектов класса
-        public Employee(string name, int age, string position, decimal salaryPerMonth)
-        {
-            this.name = name;
-            this.age = age;
-            this.position = position;
-            this.salaryPerMonth = salaryPerMonth;
-        }
-
         // Методы для получения и установки значений полей
         public string GetName()
         {
@@ -86,7 +77,7 @@ namespace Module_2
             decimal monthlySalary = decimal.Parse(Console.ReadLine());
 
             // Создание объекта сотрудника
-            Employee employee = new Employee(name, age, position, monthlySalary);
+            Employee employee = new Employee();
 
             // Вывод информации о сотруднике
             Console.WriteLine($"Имя: {employee.GetName()}");
