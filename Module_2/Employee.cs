@@ -31,7 +31,7 @@ namespace Module_2
             return age;
         }
 
-        public void SetAge(int age)
+        public void SetAge(byte age)
         {
             this.age = age;
         }
