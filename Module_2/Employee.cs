@@ -10,7 +10,8 @@ namespace Module_2
     {
         // Поля класса
         private string name;
-        private int age;
+        private byte age;
+        private bool isValidAge;
         private string position;
         private decimal salaryPerMonth;
 
@@ -67,8 +68,18 @@ namespace Module_2
             Console.Write("Введите имя: ");
             string name = Console.ReadLine();
 
-            Console.Write("Введите возраст: ");
-            int age = int.Parse(Console.ReadLine());
+            while (!isValidAge)
+            {
+                Console.Write("Введите возвраст: ");
+                if (byte.TryParse(Console.ReadLine(), out age) && age >= 0 && age <= 120)
+                {
+                    isValidAge = true;
+                }
+                else
+                {
+                    Console.WriteLine("Некорректный возраст. Введите корректный возраст от 0 до 120");
+                }
+            }
 
             Console.Write("Введите должность: ");
             string position = Console.ReadLine();
