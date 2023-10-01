@@ -16,6 +16,8 @@ namespace Module_2
             Intf_Abst interface_abstract = new Intf_Abst(); // обьект класса интерфеса и абстаригирования
             TemperatureSensorRealization temperatureSensorRealization = new TemperatureSensorRealization();
             Employee employee = new Employee();
+            Arbitary_Class arbitary_class = new Arbitary_Class();
+
             while (true)
             {
                 // меню выбора
