@@ -50,6 +50,7 @@
     <Compile Include="1-2_Inheritance_Polymophism.cs" />
     <Compile Include="1-4_Interfaces_AbstractClasses.cs" />
     <Compile Include="1-1_Person.cs" />
+    <Compile Include="2-3_Library.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

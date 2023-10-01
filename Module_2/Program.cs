@@ -17,20 +17,21 @@ namespace Module_2
             TemperatureSensorRealization temperatureSensorRealization = new TemperatureSensorRealization();
             Employee employee = new Employee();
             Arbitary_Class arbitary_class = new Arbitary_Class();
+            Library library = new Library();
 
             while (true)
             {
                 // меню выбора
-                Console.WriteLine("\t---Меню---");
-                Console.WriteLine("1. Создание класса Person");
-                Console.WriteLine("2. Наследование и полиморфизм");
-                Console.WriteLine("3. Композиция");
-                Console.WriteLine("4. Интерфейсы и абстрактные классы");
-                Console.WriteLine("5. События");
-                Console.WriteLine("---Задания по варианту 3---");
-                Console.WriteLine("6. Создание класса 'Сотрудник' ");
-                Console.WriteLine("7. Создать класс с двумя переменными");
-                Console.WriteLine("8. Создание класса 'Библиотека'");
+                Console.WriteLine("\t---Меню---" + 
+                    "\n1. Создание класса Person" +
+                    "\n2. Наследование и полиморфизм" + 
+                    "\n3. Композиция" + 
+                    "\n4. Интерфейсы и абстрактные классы" +
+                    "\n5. События" +
+                    "\n---Задания по варианту 3---" + 
+                    "\n6. Создание класса 'Сотрудник' " + 
+                    "\n7. Создать класс с двумя переменными" + 
+                    "\n8. Создание класса 'Библиотека'");
                 
 
                 string choiceNumber = Console.ReadLine();
@@ -75,7 +76,7 @@ namespace Module_2
                         break;
                     case "8":
                         Console.Clear();
-
+                        library.OutputData();
                         Console.Clear();
                         break;
                     default:
