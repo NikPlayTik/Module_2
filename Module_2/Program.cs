@@ -13,7 +13,7 @@ namespace Module_2
             Person person = new Person(); // обьект класса person 
             Inh_Poly inh_poly = new Inh_Poly(); // обьект класса "наследование и полиморфизм"
             Compozition compozition = new Compozition(); // обьект класса "композиции"
-            Intf_Abst interface_abstract = new Intf_Abst();
+            Intf_Abst interface_abstract = new Intf_Abst(); // обьект класса интерфеса и абстаригирования
             TemperatureSensorRealization temperatureSensorRealization = new TemperatureSensorRealization();
             Employee employee = new Employee();
             while (true)
@@ -63,7 +63,7 @@ namespace Module_2
                         break;
                     case "6":
                         Console.Clear();
-                        employee.OutputData();
+                        employee.OutputData(); 
                         Console.Clear();
                         break;
                     case "7":
