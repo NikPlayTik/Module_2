@@ -6,7 +6,39 @@ using System.Threading.Tasks;
 
 namespace Module_2
 {
-    internal class Arbitrary_class_2_2
+    public class Arbitary_Class
     {
+        public string name;
+        public string surname;
+
+        // конструктор с параметрами
+        public Arbitary_Class(string name, string surname)
+        {
+            this.name = name;
+            this.surname = surname;
+        }
+
+        // конструктор без параметров по умолчанию
+        public Arbitary_Class()
+        {
+            name = "ExampleName";
+            surname = "ExampleSurname";
+        }
+
+        // добавление деструктора который будет удалять обьект класса 
+        ~Arbitary_Class()
+        {
+            Console.WriteLine("Объект класса удален");
+        }
+
+        // метод вывода значений
+        public void OutputData()
+        {
+            Console.Write("Введите своё имя: ");
+            name = Console.ReadLine();
+            Console.WriteLine("Введите свою фамилию: ");
+            surname = Console.ReadLine();
+        }
     }
+
 }
