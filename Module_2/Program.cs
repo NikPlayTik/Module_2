@@ -70,7 +70,7 @@ namespace Module_2
                         break;
                     case "7":
                         Console.Clear();
-
+                        arbitary_class.OutputData();
                         Console.Clear();
                         break;
                     case "8":
