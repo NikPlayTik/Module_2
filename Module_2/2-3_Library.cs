@@ -63,20 +63,27 @@ namespace Module_2
             string titleDelete = Console.ReadLine();
 
             bool bookIS = false; // флаг для удаления книги
-            for (int i = 0; i < books.Count; i++)
+            if (books.Count > 0)
             {
-                if (books[i].titleBook == titleDelete)
+                for (int i = 0; i < books.Count; i++)
                 {
-                    books.RemoveAt(i);
-                    Console.WriteLine("Книга удалена из библиотеки");
-                    bookIS = true;
-                    break;
+                    if (books[i].titleBook == titleDelete)
+                    {
+                        books.RemoveAt(i);
+                        Console.WriteLine("Книга удалена из библиотеки");
+                        bookIS = true;
+                        break;
+                    }
+                }
+
+                if (!bookIS)
+                {
+                    Console.WriteLine("Книга с таким названием не найдена");
                 }
             }
-
-            if (!bookIS)
+            else
             {
-                Console.WriteLine("Книга с таким названием не найдена");
+                Console.WriteLine("В списке нету книг");
             }
             Console.ReadLine();
         }
@@ -84,28 +91,35 @@ namespace Module_2
         {
             Console.Write("Введите год выпуска книги: ");
             int yearFind; // локальная переменная по вводу
-
-            if (int.TryParse(Console.ReadLine(), out yearFind))
+            if (books.Count > 0)
             {
-                List<BookL> booksYear = books.Where(b => b.yearPublished == yearFind).ToList();
-
-                if (booksYear.Count > 0)
+                if (int.TryParse(Console.ReadLine(), out yearFind))
                 {
-                    Console.WriteLine($"Найдены книги, выпущенные в {yearFind} году:");
-                    foreach (var book in booksYear)
+                    List<BookL> booksYear = books.Where(b => b.yearPublished == yearFind).ToList();
+
+                    if (booksYear.Count > 0)
                     {
-                        Console.WriteLine($"Название: {book.titleBook}, Автор: {book.AuthorL.nameAutor} {book.AuthorL.surnameAutor}");
+                        Console.WriteLine($"Найдены книги, выпущенные в {yearFind} году:");
+                        foreach (var book in booksYear)
+                        {
+                            Console.WriteLine($"Название: {book.titleBook}, Автор: {book.AuthorL.nameAutor} {book.AuthorL.surnameAutor}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Книги с указанным годом выпуска не найдено");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Книги с указанным годом выпуска не найдено");
+                    Console.WriteLine("Некорректный ввод года. Введите число");
                 }
             }
             else
             {
-                Console.WriteLine("Некорректный ввод года. Введите число");
+                Console.WriteLine("В списке нету книг");
             }
+            Console.ReadLine();
         }
         public void OutputBooks()
         {
