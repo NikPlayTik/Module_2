@@ -38,6 +38,7 @@ namespace Module_2
             name = Console.ReadLine();
             Console.Write("Введите свою фамилию: ");
             surname = Console.ReadLine();
+            Console.ReadLine();
         }
     }
 
