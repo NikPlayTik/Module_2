@@ -10,18 +10,10 @@ namespace Module_2
     {
         // Поля класса
         private string name;
-        private int age;
+        private byte age;
+        private bool isValidAge;
         private string position;
         private decimal salaryPerMonth;
-
-        // Конструктор для инициализации объектов класса
-        public Employee(string name, int age, string position, decimal salaryPerMonth)
-        {
-            this.name = name;
-            this.age = age;
-            this.position = position;
-            this.salaryPerMonth = salaryPerMonth;
-        }
 
         // Методы для получения и установки значений полей
         public string GetName()
@@ -39,7 +31,7 @@ namespace Module_2
             return age;
         }
 
-        public void SetAge(int age)
+        public void SetAge(byte age)
         {
             this.age = age;
         }
@@ -76,8 +68,18 @@ namespace Module_2
             Console.Write("Введите имя: ");
             string name = Console.ReadLine();
 
-            Console.Write("Введите возраст: ");
-            int age = int.Parse(Console.ReadLine());
+            while (!isValidAge)
+            {
+                Console.Write("Введите возвраст: ");
+                if (byte.TryParse(Console.ReadLine(), out age) && age >= 0 && age <= 120)
+                {
+                    isValidAge = true;
+                }
+                else
+                {
+                    Console.WriteLine("Некорректный возраст. Введите корректный возраст от 0 до 120");
+                }
+            }
 
             Console.Write("Введите должность: ");
             string position = Console.ReadLine();
@@ -86,7 +88,7 @@ namespace Module_2
             decimal monthlySalary = decimal.Parse(Console.ReadLine());
 
             // Создание объекта сотрудника
-            Employee employee = new Employee(name, age, position, monthlySalary);
+            Employee employee = new Employee();
 
             // Вывод информации о сотруднике
             Console.WriteLine($"Имя: {employee.GetName()}");
