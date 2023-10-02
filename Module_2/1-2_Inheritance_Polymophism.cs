@@ -59,12 +59,26 @@ namespace Module_2
         public void OutputData()
         {
             // ввод данных
-            Console.WriteLine("Введите радиус круга: ");
-            double radius = double.Parse(Console.ReadLine());
-            Console.WriteLine("Введите длину и ширину прямоугольника: ");
-            double length = double.Parse(Console.ReadLine());
-            double width = double.Parse(Console.ReadLine());
+            double radius, length, width;
 
+            while (true)
+            {
+                Console.WriteLine("Введите радиус круга: ");
+                radius = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Введите длину и ширину прямоугольника: ");
+                length = double.Parse(Console.ReadLine());
+                width = double.Parse(Console.ReadLine());
+                if (radius > 0 && length > 0 && width > 0)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Введенные значения должны быть положительными");
+                }
+            }
+                  
             // создание объектов
             Circle_ circle = new Circle_(radius);
             Rectangle_ rectangle = new Rectangle_(length, width);
