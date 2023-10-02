@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Module_2
 {
@@ -15,47 +16,6 @@ namespace Module_2
         private string position;
         private decimal salaryPerMonth;
 
-        // Методы для получения и установки значений полей
-        public string GetName()
-        {
-            return name;
-        }
-
-        public void SetName(string name)
-        {
-            this.name = name;
-        }
-
-        public int GetAge()
-        {
-            return age;
-        }
-
-        public void SetAge(byte age)
-        {
-            this.age = age;
-        }
-
-        public string GetPosition()
-        {
-            return position;
-        }
-
-        public void SetPosition(string position)
-        {
-            this.position = position;
-        }
-
-        public decimal GetSalaryPerMonth()
-        {
-            return salaryPerMonth;
-        }
-
-        public void SetSalaryPerMonth(decimal salary)
-        {
-            this.salaryPerMonth = salary;
-        }
-
         // Метод для расчета годового дохода на основе месячной зарплаты
         public decimal CalculateAnnualIncome()
         {
@@ -64,9 +24,8 @@ namespace Module_2
 
         public void OutputData()
         {
-            // Ввод данных с клавиатуры
             Console.Write("Введите имя: ");
-            string name = Console.ReadLine();
+            name = Console.ReadLine();
 
             while (!isValidAge)
             {
@@ -82,34 +41,33 @@ namespace Module_2
             }
 
             Console.Write("Введите должность: ");
-            string position = Console.ReadLine();
+            position = Console.ReadLine();
 
             Console.Write("Введите месячную зарплату: ");
-            decimal monthlySalary = decimal.Parse(Console.ReadLine());
-
-            // Создание объекта сотрудника
-            Employee employee = new Employee();
+            salaryPerMonth = decimal.Parse(Console.ReadLine());
 
             // Вывод информации о сотруднике
-            Console.WriteLine($"Имя: {employee.GetName()}");
-            Console.WriteLine($"Возраст: {employee.GetAge()}");
-            Console.WriteLine($"Должность: {employee.GetPosition()}");
-            Console.WriteLine($"Месячная зарплата: {employee.GetSalaryPerMonth()}");
+            Console.WriteLine($"Имя: {name}");
+            Console.WriteLine($"Возраст: {age}");
+            Console.WriteLine($"Должность: {position}");
+            Console.WriteLine($"Месячная зарплата: {salaryPerMonth}");
 
             // Расчет и вывод годового дохода
-            decimal annualIncome = employee.CalculateAnnualIncome();
+            decimal annualIncome = CalculateAnnualIncome();
             Console.WriteLine($"Годовой доход: {annualIncome}");
 
             // изменение месячной зарплаты и ее вывод
             Console.Write("Введите новую месячную зарплату: ");
             decimal newMonthlySalary = decimal.Parse(Console.ReadLine());
 
-            employee.SetSalaryPerMonth(newMonthlySalary);
-            Console.WriteLine($"Обновленная месячная зарплата: {employee.GetSalaryPerMonth()}");
+            salaryPerMonth = newMonthlySalary;
+            Console.WriteLine($"Обновленная месячная зарплата: {salaryPerMonth}");
 
             // Расчет и вывод обновленного годового дохода
-            annualIncome = employee.CalculateAnnualIncome();
+            annualIncome = CalculateAnnualIncome();
             Console.WriteLine($"Обновленный годовой доход: {annualIncome}");
+            Console.ReadLine();
+
         }
     }
 

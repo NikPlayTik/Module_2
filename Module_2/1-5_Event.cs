@@ -80,7 +80,8 @@ namespace Module_2
             else                                                            
             {                                                               
                 Console.WriteLine("Некорректный ввод");                     
-            }                                                               
+            }    
+            Console.ReadLine();
         }
     }
 }

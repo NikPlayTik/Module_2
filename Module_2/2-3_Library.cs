@@ -37,7 +37,6 @@ namespace Module_2
     public class Library
     {
         private List<BookL> books = new List<BookL>(); // список книг
-
         public void AddBook()
         {
             Console.Write("Введите название книги: ");
@@ -137,16 +136,26 @@ namespace Module_2
             }
             Console.ReadLine();
         }
+        public bool ExitCycle(string choiceNumberTemp)
+        {
+            if (choiceNumberTemp == "5")
+            {
+                return false;
+            }
+            return true;
+        }
         public void OutputData()
         {
-            while (true)
+            bool continueLoop = true;
+            while (continueLoop)
             {
                 Console.WriteLine("\t---Библиотека---");
                 Console.WriteLine("Выберите номер нужной функции: " +
                     "\n1. Добавить книгу" +
                     "\n2. Удалить книгу" +
                     "\n3. Найти книгу по году выпуска" +
-                    "\n4. Вывести все доступные книги");
+                    "\n4. Вывести все доступные книги" + 
+                    "\n5. Для выхода из меню нажмите '5' ");
 
                 string choiceNumber = Console.ReadLine();
 
@@ -170,6 +179,11 @@ namespace Module_2
                     case "4":
                         Console.Clear();
                         OutputBooks();
+                        Console.Clear();
+                        break;
+                    case "5":
+                        Console.Clear();
+                        continueLoop = ExitCycle(choiceNumber);
                         Console.Clear();
                         break;
                     default:
